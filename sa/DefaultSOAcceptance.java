@@ -6,7 +6,6 @@ public class DefaultSOAcceptance implements AcceptancePolicy {
 	public double acceptanceProbabilty(SimulatedAnnealing sa) {
 		SimulatedAnnealingSO so= (SimulatedAnnealingSO)sa;
 		double temp=sa.getTemperature();
-		int iteration=sa.iteration;
 		return Math.exp(((Double)(so.getActualSolution().fitness()[0])-(Double)so.getNeighbour().fitness()[0])/temp);
 	}
 

@@ -33,8 +33,8 @@ public class SimulatedAnnealingMO extends SimulatedAnnealing {
 	}
 	
 	protected ArrayList<Solution> paretoFront;
-	Solution neighbour;
-	Solution actual;
+	protected Solution neighbour;
+	protected Solution actual;
 	
 	public boolean compareToParetoFront(Solution s){
 		Iterator<Solution>iterator = paretoFront.iterator();

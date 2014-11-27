@@ -12,7 +12,7 @@ public class SimulatedAnnealingTabuSO extends SimulatedAnnealingSO
 	
 	public SimulatedAnnealingTabuSO(Solution start)
 	{
-		this(start,100,new GeometricCooling(),new DefaultSOAcceptance(), 5, new DefaultSOAspiration());
+		this(start,100,new GeometricCooling(),new DefaultSOAcceptance(), 10, new DefaultSOAspiration());
 	}
 	
 	@Override
