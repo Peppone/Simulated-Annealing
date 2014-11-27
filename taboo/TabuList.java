@@ -30,6 +30,8 @@ public class TabuList
 
 	public boolean contains(Solution e) 
 	{
-		return tabuList.contains(e);
+		for(Solution x:tabuList)
+			if(e.equals(x)) return true;
+		return false;
 	}
 }
