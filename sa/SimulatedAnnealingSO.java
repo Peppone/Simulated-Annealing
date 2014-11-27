@@ -3,6 +3,12 @@ package sa;
 import java.util.ArrayList;
 import java.util.Random;
 
+import acceptance.AcceptancePolicy;
+import acceptance.DefaultSOAcceptance;
+
+import cooling.CoolingProcedure;
+import cooling.GeometricCooling;
+
 import solution.Solution;
 
 public class SimulatedAnnealingSO extends SimulatedAnnealing {

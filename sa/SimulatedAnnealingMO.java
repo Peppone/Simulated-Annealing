@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
+import acceptance.AcceptancePolicy;
+import acceptance.DefaultMOAcceptance;
+
+import cooling.CoolingProcedure;
+import cooling.GeometricCooling;
+
 import solution.Solution;
 
 public class SimulatedAnnealingMO extends SimulatedAnnealing {
