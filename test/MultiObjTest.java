@@ -3,8 +3,8 @@ package test;
 import java.util.ArrayList;
 import java.util.Random;
 
-import sa.AcceptancePolicy;
-import sa.CoolingProcedure;
+import sa.DecrementalCooling;
+import sa.DefaultMOAcceptance;
 import sa.SimulatedAnnealingMO;
 import solution.IntegerSolution;
 import solution.Solution;
@@ -73,11 +73,11 @@ class MyIntegerSolutionMO extends IntegerSolution{
 		return res;
 	}
 }
-
 public class MultiObjTest {
 	public static void main (String[]args){
 		
-		SimulatedAnnealingMO mo=new SimulatedAnnealingMO(new MyIntegerSolutionMO());
+		SimulatedAnnealingMO mo=new SimulatedAnnealingMO(new MyIntegerSolutionMO(),100,new DecrementalCooling(),new DefaultMOAcceptance());
+		mo.setTemperature(Integer.MAX_VALUE);
 		ArrayList<Solution> sol=mo.execute();
 		for(Solution i:sol)
 		System.out.println(("Fun "+i.fitness()[0]+" "+i.fitness()[1]+"  "+((MyIntegerSolutionMO)i).print())+" "+((MyIntegerSolutionMO)i).getVariables().length);

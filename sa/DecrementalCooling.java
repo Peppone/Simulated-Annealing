@@ -9,7 +9,9 @@ public final class DecrementalCooling implements CoolingProcedure {
 	@Override
 	public boolean isEnd(SimulatedAnnealing sa) {
 		if(sa.temperature<0)return true;
-		if(sa.getIterationNumber()>100000)return true;
+		if(sa.getIterationNumber()>10000)return true;
 		return false;
 	}
+
+
 }
