@@ -16,7 +16,8 @@ public class SimulatedAnnealingTabuSO extends SimulatedAnnealingSO
 {
 	protected TabuList	tabuList;
 	protected AspirationCriterion criterion;
-	
+	protected int skippedIterations;
+
 	public SimulatedAnnealingTabuSO(Solution start)
 	{
 		this(start,100,new GeometricCooling(),new DefaultSOAcceptance(), 10, new DefaultSOAspiration());
@@ -39,6 +40,7 @@ public class SimulatedAnnealingTabuSO extends SimulatedAnnealingSO
 		super(start, initialTemperature,cp,ap);	
 		criterion=ac;
 		tabuList=new TabuList(TLlength);
+		skippedIterations=0;
 	}
 	
 	@Override
@@ -53,10 +55,12 @@ public class SimulatedAnnealingTabuSO extends SimulatedAnnealingSO
 			{
 				Random r=new Random();
 				double prob=r.nextDouble();
-				if(!(prob<criterion.aspirationCriterion(this)))
+				if(!(prob<criterion.aspirationCriterion(this))){
+					skippedIterations++;					
 					continue;
+				}
 			}
-			
+			skippedIterations=0;
 			double res = (Double)neighbour.fitness()[0]-(Double)actual.fitness()[0];
 
 			System.out.println("t "+temperature+" it "+iteration+" n "+neighbour);

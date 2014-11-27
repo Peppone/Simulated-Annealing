@@ -16,6 +16,7 @@ public class SimulatedAnnealingTabuMO extends SimulatedAnnealingMO {
 
 	protected TabuList	tabuList;
 	protected AspirationCriterion criterion;
+	protected int skippedIterations;
 	
 	public SimulatedAnnealingTabuMO(Solution start) {
 		this(start,100,new GeometricCooling(),new DefaultMOAcceptance(), 10, new DefaultMOAspiration());
@@ -27,6 +28,7 @@ public class SimulatedAnnealingTabuMO extends SimulatedAnnealingMO {
 		super(start, initialTemperature,cp,ap);	
 		criterion=ac;
 		tabuList=new TabuList(TLlength);
+		skippedIterations=0;
 	}
 	
 	@Override
@@ -39,9 +41,12 @@ public class SimulatedAnnealingTabuMO extends SimulatedAnnealingMO {
 			{
 				Random r=new Random();
 				double prob=r.nextDouble();
-				if(!(prob<criterion.aspirationCriterion(this)))
+				if(!(prob<criterion.aspirationCriterion(this))){
+					skippedIterations++;					
 					continue;
+				}
 			}
+			skippedIterations=0;
 			boolean comparison=compareToParetoFront(neighbour);
 			if(!comparison){
 				Random r=new Random();

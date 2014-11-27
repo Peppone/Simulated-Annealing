@@ -17,6 +17,9 @@ public class TabuList
 
 	public void add(Solution e)
 	{
+		for(Solution i: tabuList){
+			if(i.equals(e))return;
+		}
 		tabuList.addLast(e);
 		if(tabuList.size()>length)
 			while(tabuList.size()>length)
