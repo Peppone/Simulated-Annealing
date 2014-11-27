@@ -107,12 +107,28 @@ public abstract class DoubleSolution extends Solution<Double> {
 		return this;
 	}
 
-	public void setMaxValue(int max, int index){
-		maxValue[index]=max;
+	public DoubleSolution setMaxValue(double max, int index){
+		if(minValue[index]<max)
+			maxValue[index]=max;
+		return this;
 	}
 	
-	public void setMinValue(int min,int index){
-		minValue[index]=min;
+	public DoubleSolution setMaxValue(double max){
+		for(int i=0;i<size;i++)
+			setMaxValue(max,i);
+		return this;
+	}
+	
+	public DoubleSolution setMinValue(double min,int index){
+		if(maxValue[index]>min)
+			minValue[index]=min;
+		return this;
+	}
+	
+	public DoubleSolution setMinValue(double min){
+		for(int i=0;i<size;i++)
+			setMinValue(min,i);
+		return this;
 	}
 	
 	public boolean equals(Solution s){

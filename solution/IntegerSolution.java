@@ -91,14 +91,29 @@ public abstract class IntegerSolution extends Solution<Integer> {
 		return maxValue[index];
 	}
 
-	public void setMaxValue(int max, int index){
-		maxValue[index]=max;
+	public IntegerSolution setMaxValue(int max, int index){
+		if(minValue[index]<max)
+			maxValue[index]=max;
+		return this;
 	}
 	
-	public void setMinValue(int min,int index){
-		minValue[index]=min;
+	public IntegerSolution setMaxValue(int max){
+		for(int i=0;i<size;i++)
+			setMaxValue(max,i);
+		return this;
 	}
 	
+	public IntegerSolution setMinValue(int min,int index){
+		if(maxValue[index]>min)
+			minValue[index]=min;
+		return this;
+	}
+	
+	public IntegerSolution setMinValue(int min){
+		for(int i=0;i<size;i++)
+			setMinValue(min,i);
+		return this;
+	}
 	
 	public void setVariable(Integer in, int index) {
 		if (size <= index || index < 0) {
