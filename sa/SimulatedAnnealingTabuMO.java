@@ -41,6 +41,7 @@ public class SimulatedAnnealingTabuMO extends SimulatedAnnealingMO {
 				double prob=r.nextDouble();
 				if(prob<policy.acceptanceProbabilty(this)){
 					actual=neighbour;
+					tabuList.add(neighbour);
 				}
 			}
 			iteration++;
