@@ -5,11 +5,8 @@ import java.util.Random;
 
 import solution.Solution;
 
-public class SimulatedAnnealingTabuSO extends SimulatedAnnealing 
+public class SimulatedAnnealingTabuSO extends SimulatedAnnealingSO 
 {
-	protected Solution best;
-	protected Solution actual;
-	protected Solution neighbour;
 	protected TabuList	tabuList;
 	protected AspirationCriterion criterion;
 	
@@ -32,19 +29,7 @@ public class SimulatedAnnealingTabuSO extends SimulatedAnnealing
 	
 	public SimulatedAnnealingTabuSO(Solution start, double initialTemperature, CoolingProcedure cp, AcceptancePolicy ap, int TLlength, AspirationCriterion ac)
 	{
-		best=start;
-		actual=best;
-		temperature=initialTemperature;
-		
-		if(initialTemperature<=0)
-		{
-			System.err.println("Temperature must be greater than 0. Setting default value");
-			temperature=100;
-		}
-		
-		cooling=cp;
-		policy=ap;
-		
+		super(start, initialTemperature,cp,ap);	
 		criterion=ac;
 		tabuList=new TabuList(TLlength);
 	}
