@@ -18,8 +18,9 @@ public class TabuList
 	public void add(Solution e)
 	{
 		tabuList.addLast(e);
-		if(tabuList.size()==length)
-			tabuList.removeFirst();
+		if(tabuList.size()>length)
+			while(tabuList.size()>length)
+				tabuList.removeFirst();
 	}
 
 	public int length()
