@@ -12,7 +12,7 @@ public class SimulatedAnnealingSO extends SimulatedAnnealing {
 	protected Solution neighbour;
 	
 	public SimulatedAnnealingSO(Solution start){
-		this(start,100,new ExponentialCooling(),new DefaultSOAcceptance());
+		this(start,100,new GeometricCooling(),new DefaultSOAcceptance());
 		
 	}
 	@Override

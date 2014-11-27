@@ -2,12 +2,12 @@ package sa;
 
 import java.util.HashMap;
 
-public final class ExponentialCooling implements CoolingProcedure {
+public final class GeometricCooling implements CoolingProcedure {
 	protected double alpha;
-	public ExponentialCooling(){
-		this(0.5);
+	public GeometricCooling(){
+		this(0.75);
 	}
-	public ExponentialCooling(double alpha){
+	public GeometricCooling(double alpha){
 		this.alpha=alpha;
 	}
 	@Override

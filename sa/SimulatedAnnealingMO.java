@@ -9,7 +9,7 @@ import solution.Solution;
 public class SimulatedAnnealingMO extends SimulatedAnnealing {
 
 	public SimulatedAnnealingMO(Solution start){
-		this(start,100,new ExponentialCooling(),new DefaultMOAcceptance());
+		this(start,100,new GeometricCooling(),new DefaultMOAcceptance());
 		
 	}
 	@Override
