@@ -3,11 +3,11 @@ package test;
 import java.util.ArrayList;
 import java.util.Random;
 
-import sa.DecrementalCooling;
-import sa.DefaultMOAcceptance;
 import sa.SimulatedAnnealingMO;
 import solution.IntegerSolution;
 import solution.Solution;
+import acceptance.DefaultMOAcceptance;
+import cooling.DecrementalCooling;
 class MyIntegerSolutionMO extends IntegerSolution{
 	int task=5;
 	int server=2;

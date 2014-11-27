@@ -1,6 +1,5 @@
 package solution;
 
-import java.util.Random;
 
 public abstract class DoubleSolution extends Solution<Double> {
 

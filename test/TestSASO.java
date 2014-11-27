@@ -2,12 +2,12 @@ package test;
 
 import java.util.ArrayList;
 
-import sa.AcceptancePolicy;
-import sa.CoolingProcedure;
-import sa.DefaultSOAcceptance;
-import sa.ExponentialCooling;
 import sa.SimulatedAnnealingSO;
 import solution.Solution;
+import acceptance.AcceptancePolicy;
+import acceptance.DefaultSOAcceptance;
+import cooling.CoolingProcedure;
+import cooling.GeometricCooling;
 
 public class TestSASO extends SimulatedAnnealingSO
 {
@@ -20,7 +20,7 @@ public class TestSASO extends SimulatedAnnealingSO
 	public static void main(String[] args) 
 	{
 		ArrayList<Solution> solutions;
-		TestSASO test=new TestSASO(new Path(), 50,new ExponentialCooling(.8),new DefaultSOAcceptance());
+		TestSASO test=new TestSASO(new Path(), 50,new GeometricCooling(.8),new DefaultSOAcceptance());
 		solutions=test.execute();
 		System.out.println("Solutions ("+solutions.size()+"): ");
 		for(Solution p:solutions)

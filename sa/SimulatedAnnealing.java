@@ -2,11 +2,9 @@ package sa;
 
 import java.util.ArrayList;
 
-import acceptance.AcceptancePolicy;
-
-import cooling.CoolingProcedure;
-
 import solution.Solution;
+import acceptance.AcceptancePolicy;
+import cooling.CoolingProcedure;
 
 public abstract class SimulatedAnnealing {
 	protected double temperature;

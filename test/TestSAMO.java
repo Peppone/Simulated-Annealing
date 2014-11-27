@@ -2,13 +2,12 @@ package test;
 
 import java.util.ArrayList;
 
-import sa.AcceptancePolicy;
-import sa.CoolingProcedure;
-import sa.DecrementalCooling;
-import sa.DefaultMOAcceptance;
-import sa.ExponentialCooling;
 import sa.SimulatedAnnealingMO;
 import solution.Solution;
+import acceptance.AcceptancePolicy;
+import acceptance.DefaultMOAcceptance;
+import cooling.CoolingProcedure;
+import cooling.DecrementalCooling;
 
 public class TestSAMO extends SimulatedAnnealingMO
 {

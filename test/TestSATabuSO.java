@@ -2,14 +2,14 @@ package test;
 
 import java.util.ArrayList;
 
-import sa.AcceptancePolicy;
-import sa.AspirationCriterion;
-import sa.CoolingProcedure;
-import sa.DefaultSOAcceptance;
-import sa.DefaultSOAspiration;
-import sa.ExponentialCooling;
-import sa.SimulatedAnnealingTabuSO;
 import solution.Solution;
+import taboo.SimulatedAnnealingTabuSO;
+import acceptance.AcceptancePolicy;
+import acceptance.DefaultSOAcceptance;
+import aspiration.AspirationCriterion;
+import aspiration.DefaultSOAspiration;
+import cooling.CoolingProcedure;
+import cooling.GeometricCooling;
 
 public class TestSATabuSO extends SimulatedAnnealingTabuSO
 {
@@ -22,7 +22,7 @@ public class TestSATabuSO extends SimulatedAnnealingTabuSO
 	public static void main(String[] args) 
 	{
 		ArrayList<Solution> solutions;
-		TestSATabuSO test=new TestSATabuSO(new Path(), 50,new ExponentialCooling(.8),new DefaultSOAcceptance(), 5, new DefaultSOAspiration());
+		TestSATabuSO test=new TestSATabuSO(new Path(), 50,new GeometricCooling(.8),new DefaultSOAcceptance(), 5, new DefaultSOAspiration());
 		solutions=test.execute();
 		System.out.println("Solutions ("+solutions.size()+"): ");
 		for(Solution p:solutions)

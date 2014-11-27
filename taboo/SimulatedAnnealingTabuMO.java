@@ -3,16 +3,14 @@ package taboo;
 import java.util.ArrayList;
 import java.util.Random;
 
+import sa.SimulatedAnnealingMO;
+import solution.Solution;
 import acceptance.AcceptancePolicy;
 import acceptance.DefaultMOAcceptance;
 import aspiration.AspirationCriterion;
 import aspiration.DefaultMOAspiration;
-
 import cooling.CoolingProcedure;
 import cooling.GeometricCooling;
-
-import sa.SimulatedAnnealingMO;
-import solution.Solution;
 
 public class SimulatedAnnealingTabuMO extends SimulatedAnnealingMO {
 
