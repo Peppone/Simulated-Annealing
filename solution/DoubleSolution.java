@@ -99,11 +99,25 @@ public abstract class DoubleSolution extends Solution<Double> {
 		variables[index] = in;
 		return;
 	}
+	
+	public Double getVariable (int index) {
+		if (size <= index || index < 0) {
+			System.err
+					.println("Trying to access an invalid location, nothing is done");
+			return null;
+		}
+		else return variables[index];
+		
+	}
 
-	protected DoubleSolution setVariables(Double[] var) {
+	public DoubleSolution setVariables(Double[] var) {
 		variables = var;
 		size = var.length;
 		return this;
+	}
+	
+	public Double getVariables(int index) {
+		return variables[index];
 	}
 
 	public DoubleSolution setMaxValue(double max, int index){

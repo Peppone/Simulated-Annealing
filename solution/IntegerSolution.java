@@ -123,16 +123,28 @@ public abstract class IntegerSolution extends Solution<Integer> {
 		variables[index] = in;
 		return;
 	}
+	
+	public Integer getVariable (int index) {
+		if (size <= index || index < 0) {
+			System.err
+					.println("Trying to access an invalid location, nothing is done");
+			return null;
+		}
+		else return variables[index];
+		
+	}
+	
 
-	protected IntegerSolution setVariables(Integer[] var) {
+	public IntegerSolution setVariables(Integer[] var) {
 		variables = var;
 		size = var.length;
 		return this;
 	}
 	
-	protected Integer getVariables(int index) {
+	public Integer getVariables(int index) {
 		return variables[index];
 	}
+
 	@Override
 	public boolean equals(Solution s){
 		IntegerSolution s2=(IntegerSolution) s;
