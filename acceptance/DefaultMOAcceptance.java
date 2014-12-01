@@ -14,7 +14,7 @@ public class DefaultMOAcceptance implements AcceptancePolicy{
 		int objectiveNumber=s1.fitness().length;
 		double distance=0;
 		for(int i=0;i<objectiveNumber;++i){
-			double difference=((Double)(s1.fitness()[i])-(Double)s2.fitness()[1]);
+			double difference=((Double)(s1.fitness()[i])-(Double)s2.fitness()[i]);
 			distance+=difference*difference;
 		
 		}
