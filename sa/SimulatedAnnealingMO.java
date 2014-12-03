@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-import solution.Solution;
 import acceptance.AcceptancePolicy;
 import acceptance.DefaultMOAcceptance;
+
 import cooling.CoolingProcedure;
 import cooling.GeometricCooling;
+
+import solution.Solution;
 
 public class SimulatedAnnealingMO extends SimulatedAnnealing {
 
@@ -27,6 +29,7 @@ public class SimulatedAnnealingMO extends SimulatedAnnealing {
 	public SimulatedAnnealingMO(Solution start, double initialTemperature,CoolingProcedure cp, AcceptancePolicy ap){
 		paretoFront=new ArrayList<Solution>();
 		actual=start;
+		paretoFront.add(start);
 		temperature=initialTemperature;
 		if(initialTemperature<=0){
 			System.err.println("Temperature must be greater than 0. Setting default value");

@@ -86,4 +86,8 @@ public class Path extends IntegerSolution
 			res+=x+"-";
 		return res.substring(0, res.length()-1);
 	}
+	@Override
+	public Double overallConstraintViolation() {
+		return new Double(0);
+	}
 }

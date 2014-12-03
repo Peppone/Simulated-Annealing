@@ -3,17 +3,18 @@ package taboo;
 import java.util.ArrayList;
 import java.util.Random;
 
-import sa.SimulatedAnnealingSO;
-import solution.Solution;
 import acceptance.AcceptancePolicy;
 import acceptance.DefaultSOAcceptance;
 import aspiration.AspirationCriterion;
 import aspiration.DefaultSOAspiration;
+
 import cooling.CoolingProcedure;
 import cooling.GeometricCooling;
 
-public class SimulatedAnnealingTabuSO extends SimulatedAnnealingSO 
-{
+import sa.SimulatedAnnealingSO;
+import solution.Solution;
+
+public class SimulatedAnnealingTabuSO extends SimulatedAnnealingSO{
 	protected TabuList	tabuList;
 	protected AspirationCriterion criterion;
 	protected int skippedIterations;

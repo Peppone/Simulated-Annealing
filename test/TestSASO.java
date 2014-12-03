@@ -2,12 +2,14 @@ package test;
 
 import java.util.ArrayList;
 
-import sa.SimulatedAnnealingSO;
-import solution.Solution;
 import acceptance.AcceptancePolicy;
 import acceptance.DefaultSOAcceptance;
+
 import cooling.CoolingProcedure;
 import cooling.GeometricCooling;
+
+import sa.SimulatedAnnealingSO;
+import solution.Solution;
 
 public class TestSASO extends SimulatedAnnealingSO
 {

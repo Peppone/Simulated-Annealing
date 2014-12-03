@@ -47,6 +47,12 @@ class MyIntegerSolution extends IntegerSolution{
 		return duplicate;
 
 	}
+
+
+	@Override
+	public Double overallConstraintViolation() {
+		return new Double(0);
+	}
 	
 }
 public class SimpleTest {

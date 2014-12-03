@@ -2,14 +2,16 @@ package test;
 
 import java.util.ArrayList;
 
-import solution.Solution;
-import taboo.SimulatedAnnealingTabuSO;
 import acceptance.AcceptancePolicy;
 import acceptance.DefaultSOAcceptance;
 import aspiration.AspirationCriterion;
 import aspiration.DefaultSOAspiration;
+
 import cooling.CoolingProcedure;
 import cooling.GeometricCooling;
+
+import solution.Solution;
+import taboo.SimulatedAnnealingTabuSO;
 
 public class TestSATabuSO extends SimulatedAnnealingTabuSO
 {
