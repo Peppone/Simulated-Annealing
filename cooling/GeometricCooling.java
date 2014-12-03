@@ -5,7 +5,7 @@ import sa.SimulatedAnnealing;
 public final class GeometricCooling implements CoolingProcedure 
 {
 	protected double alpha;
-	private int counter=0, iterations=1;
+	private int iterations=1;
 
 	public GeometricCooling()
 	{
@@ -31,8 +31,7 @@ public final class GeometricCooling implements CoolingProcedure
 	@Override
 	public final double coolDown(SimulatedAnnealing sa) 
 	{
-		++counter;
-		if(counter%iterations==0)
+		if(sa.getIterationNumber()%iterations==0)
 			return sa.getTemperature()*alpha;
 		else
 			return sa.getTemperature();
@@ -42,7 +41,7 @@ public final class GeometricCooling implements CoolingProcedure
 	public boolean isEnd(SimulatedAnnealing sa) 
 	{
 		if(sa.getTemperature()<1)return true;
-		if(sa.getIterationNumber()>100)return true;
+		if(sa.getIterationNumber()>1000)return true;
 		return false;
 	}
 }

@@ -4,7 +4,12 @@ import sa.SimulatedAnnealing;
 
 public final class DecrementalCooling implements CoolingProcedure 
 {
-	private int counter=0, iterations=1;
+	private int iterations=1;
+
+	public DecrementalCooling()
+	{
+		this.iterations=1;
+	}
 
 	public DecrementalCooling(int iter)
 	{
@@ -19,8 +24,7 @@ public final class DecrementalCooling implements CoolingProcedure
 	@Override
 	public final double coolDown(SimulatedAnnealing sa) 
 	{
-		++counter;
-		if(counter%iterations==0)
+		if(sa.getIterationNumber()%iterations==0)
 			return sa.getTemperature()-1;
 		else
 			return sa.getTemperature();
