@@ -19,6 +19,6 @@ public final class DecrementalMOAspiration implements AspirationCriterion
 	@Override
 	public double aspirationCriterion(SimulatedAnnealing sa) 
 	{
-		return ((double)sa.skippedIterations)/((double)limit);
+		return ((double)sa.getSkippedIterationNumber())/((double)limit);
 	}
 }

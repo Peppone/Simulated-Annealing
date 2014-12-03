@@ -3,20 +3,21 @@ package taboo;
 import java.util.ArrayList;
 import java.util.Random;
 
-import sa.SimulatedAnnealingMO;
-import solution.Solution;
 import acceptance.AcceptancePolicy;
 import acceptance.DefaultMOAcceptance;
 import aspiration.AspirationCriterion;
 import aspiration.DefaultMOAspiration;
+
 import cooling.CoolingProcedure;
 import cooling.GeometricCooling;
+
+import sa.SimulatedAnnealingMO;
+import solution.Solution;
 
 public class SimulatedAnnealingTabuMO extends SimulatedAnnealingMO {
 
 	protected TabuList	tabuList;
 	protected AspirationCriterion criterion;
-	protected int skippedIterations;
 	
 	public SimulatedAnnealingTabuMO(Solution start) {
 		this(start,100,new GeometricCooling(),new DefaultMOAcceptance(), 10, new DefaultMOAspiration());
@@ -28,7 +29,6 @@ public class SimulatedAnnealingTabuMO extends SimulatedAnnealingMO {
 		super(start, initialTemperature,cp,ap);	
 		criterion=ac;
 		tabuList=new TabuList(TLlength);
-		skippedIterations=0;
 	}
 	
 	@Override
@@ -42,11 +42,11 @@ public class SimulatedAnnealingTabuMO extends SimulatedAnnealingMO {
 				Random r=new Random();
 				double prob=r.nextDouble();
 				if(!(prob<criterion.aspirationCriterion(this))){
-					skippedIterations++;					
+					incrementSkippedIterations();					
 					continue;
 				}
 			}
-			skippedIterations=0;
+			resetSkippedIterations();
 			boolean comparison=compareToParetoFront(neighbour);
 			if(!comparison){
 				Random r=new Random();
