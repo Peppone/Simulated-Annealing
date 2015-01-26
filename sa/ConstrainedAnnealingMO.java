@@ -33,7 +33,7 @@ public class ConstrainedAnnealingMO extends SimulatedAnnealingMO {
 			boolean pViolates=p.getViolatedConstraintsNumber()>0?true:false;
 			if((sViolates && pViolates) || (!sViolates && !pViolates)){
 				
-			if(s.equals(p))return true;
+			if(s.sameObjectives(p))return true;
 			int dominate=domination(s,p);
 			switch(dominate){
 			case -1: toRemove.add(p);

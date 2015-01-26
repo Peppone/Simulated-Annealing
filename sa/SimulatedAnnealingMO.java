@@ -50,7 +50,7 @@ public class SimulatedAnnealingMO extends SimulatedAnnealing {
 		ArrayList<Solution> toRemove=new ArrayList<Solution>();
 		while(iterator.hasNext()){
 			Solution p=iterator.next();
-			if(s.equals(p))return true;
+			if (s.sameObjectives(p))return true;
 			int dominate=domination(s,p);
 			switch(dominate){
 			case -1: toRemove.add(p);
@@ -79,8 +79,16 @@ public class SimulatedAnnealingMO extends SimulatedAnnealing {
 		if (comp>=0)bDominates=true;
 		for(int i=1;i<aObj.length;++i){
 			comp=aObj[i].compareTo(bObj[i]);
-			if(comp<=0 && aDominates)continue;
-			if(comp>=0 && bDominates)continue;
+			if(comp<0 && aDominates){
+				bDominates=false;
+				continue;
+			}else
+			if(comp==0 && (aDominates||bDominates))continue;
+			else
+			if(comp>0 && bDominates){
+				aDominates=false;
+				continue;
+			}
 			else return 0;
 			
 		}
